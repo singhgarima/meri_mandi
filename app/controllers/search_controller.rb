@@ -5,7 +5,7 @@ class SearchController < ApplicationController
 
 	def fetch
 		@results = {}
-		@results = CommodityPrice.search(params[:query], Date.today)
+		@results = CommodityPrice.search(params['query'], Date.today)
 		render :index
 	end
 end
