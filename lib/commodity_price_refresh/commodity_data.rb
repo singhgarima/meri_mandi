@@ -1,10 +1,11 @@
 require 'open-uri'
 require_relative './data_source/gov_data'
-class CommodityDataParser
+class CommodityData
   DATA_SOURCES = [GovData]
   
-  def self.parse
+  def self.refresh
     DATA_SOURCES.each do |data_source|
+      p "      Executing data fetch from '#{data_source}'"
       source = data_source.new
       source.parse_data.each do |data|
         insert_data(data)
