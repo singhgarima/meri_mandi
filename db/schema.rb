@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828131625) do
+ActiveRecord::Schema.define(version: 20130828135420) do
 
   create_table "commodities", force: true do |t|
     t.string   "name"
@@ -20,17 +20,14 @@ ActiveRecord::Schema.define(version: 20130828131625) do
   end
 
   create_table "commodity_prices", force: true do |t|
-    t.string   "state"
-    t.string   "district"
-    t.string   "market"
-    t.string   "commodity"
-    t.string   "variety"
     t.integer  "min_price"
     t.integer  "max_price"
     t.integer  "mode_price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "arrival_date"
+    t.string   "arrival_date"
+    t.integer  "market_id"
+    t.integer  "variety_id"
   end
 
   create_table "districts", force: true do |t|

@@ -14,11 +14,11 @@ class CommodityDataParser
   
   private 
   def self.insert_data(data)
-    state = State.where(name: data[:state]).first_or_create
-    district = state.districts.where(name: data[:district]).first_or_create
-    market = district.markets.where(name: data[:market]).first_or_create
-    commodity = Commodity.where(name: data[:commodity]).first_or_create
-    variety = commodity.varieties.where(name: data[:variety]).first_or_create
-    commodity_price = CommodityPrice.new(data).save
+    state = State.where(name: data.delete(:state)).first_or_create
+    district = state.districts.where(name: data.delete(:district)).first_or_create
+    market = district.markets.where(name: data.delete(:market)).first_or_create
+    commodity = Commodity.where(name: data.delete(:commodity)).first_or_create
+    variety = commodity.varieties.where(name: data.delete(:variety)).first_or_create
+    commodity_price = market.commodity_prices.new(data.merge(variety: variety)).save
   end
 end
