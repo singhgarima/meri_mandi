@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827183118) do
+ActiveRecord::Schema.define(version: 20130828131625) do
+
+  create_table "commodities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "commodity_prices", force: true do |t|
     t.string   "state"
@@ -22,6 +28,34 @@ ActiveRecord::Schema.define(version: 20130827183118) do
     t.integer  "min_price"
     t.integer  "max_price"
     t.integer  "mode_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "arrival_date"
+  end
+
+  create_table "districts", force: true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "markets", force: true do |t|
+    t.string   "name"
+    t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "varieties", force: true do |t|
+    t.string   "name"
+    t.integer  "commodity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
