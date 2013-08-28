@@ -1,0 +1,10 @@
+- variety = result.variety
+- market = result.market
+.panel.panel-info.span2
+  .panel-heading
+    = "#{variety.commodity.name}: #{variety.name}"
+  .panel-body
+    %p= "Max Price: " + result.max_price.to_s
+    %p= "Min Price: " + result.min_price.to_s
+    %p= "Mode Price: " +  result.mode_price.to_s
+    %p= "Location: " + "#{market.name}, #{market.district.name}, #{market.district.state.name}"

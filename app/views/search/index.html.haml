@@ -1,0 +1,8 @@
+= form_tag '/search', class: 'form-search', method: :get do
+  = text_field_tag 'query', nil, :class => 'input-medium search-query'
+  = button_tag 'Search'
+
+%h3
+  Results
+= render :partial => 'search/result', collection: @results
+
