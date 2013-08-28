@@ -40,3 +40,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
+gem 'shoulda'
