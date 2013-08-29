@@ -7,6 +7,6 @@ class CommodityPrice < ActiveRecord::Base
 	scope :arrival_date, ->(date = Date.today) { where(arrival_date: date.strftime('%d/%m/%Y')) }
 
 	def self.search name, date
-		CommodityPrice.joins(variety: :commodity).arrival_date.where("(varieties.name like '%#{name}%' or commodities.name like '%#{name}%')").to_a
+		CommodityPrice.joins(variety: :commodity).arrival_date(date).where("(varieties.name like '%#{name}%' or commodities.name like '%#{name}%')").to_a
 	end
 end
