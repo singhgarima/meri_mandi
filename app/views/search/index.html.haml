@@ -1,6 +1,7 @@
-= form_tag '/search', class: 'form-search', method: :get do
-  = text_field_tag 'query', nil, :class => 'input-medium search-query'
-  = button_tag 'Search'
+= form_tag '/search', class: 'form-inline', method: :get do
+  .form-group
+    = text_field_tag 'query', nil, class: 'form-control'
+  = button_tag 'Search', class: 'btn btn-info'
 
 %h3
   Results
