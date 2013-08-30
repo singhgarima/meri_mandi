@@ -8,3 +8,5 @@ deploy:
   app: meri-mandi
   on:
     repo: singhgarima/meri_mandi
+  run:
+    - "rake db:migrate"
