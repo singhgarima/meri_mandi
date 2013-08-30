@@ -1,6 +1,10 @@
-rvm:
-  1.9.3
-before_script:
-  bundle install
-script:
-  bundle exec rake spec
+rvm: 1.9.3
+before_script: bundle install
+script: bundle exec rake spec
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZiT6F1mwuRp1SQXX9ZYlQjgciPd0aJO5HuS2rkMuvAnBnAkdW3ndVERuxN36RE4fNqJ/NTo80TZu1A7MpAyJWJXVoU5I7tSvrCZtwqueakI+Ud/psiZowVSpyjMSeGivytJ/xkEv7XMBNS7RJoICh4xXU5H4cIdiSmq4uqoc2Jk=
+  app: meri-mandi
+  on:
+    repo: singhgarima/meri_mandi
