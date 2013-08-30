@@ -27,6 +27,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'sqlite3'
+  gem 'factory_girl'
 end
 
 group :production do
