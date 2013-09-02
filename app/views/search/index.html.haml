@@ -1,9 +1,11 @@
-= form_tag '/search', class: 'form-inline', method: :get do
-  .form-group
-    = text_field_tag 'query', nil, class: 'form-control'
-  = button_tag 'Search', class: 'btn btn-info'
+.page
+  = form_tag '/search', class: 'form-inline', method: :get do
+    .form-group
+      = text_field_tag 'query', nil, class: 'form-control'
+    = button_tag 'Search', class: 'btn btn-info'
 
-%h3
-  Results
-= render :partial => 'search/result', collection: @results
+  %h3
+    Results
+  .results
+    = render :partial => 'search/result', collection: @results
 
