@@ -25,3 +25,5 @@ en:
     commodity_name: 'Commodity Name'
     location: 'Mandi Name/District/State'
     search_button: 'Search'
+    no_criteria: 'No search criteria mentioned'
+    no_results: 'No results found for this criteria'

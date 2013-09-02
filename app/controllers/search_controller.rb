@@ -5,13 +5,13 @@ class SearchController < ApplicationController
 
 	def fetch
     flash.clear
-    flash[:error] = 'No search criteria mentioned' and render :index and 
+    flash[:error] = t('search.no_criteria') and render :index and 
       return if search_criteria.all? {|s| params[s].blank? }
 
     search_date = params['date'].blank? ? Date.today : Date.strptime(params['date'], '%d-%m-%Y') 
 
 		@results = CommodityPrice.search(params['query'], search_date)
-    flash[:notice] = 'No results found for this criteria'
+    flash[:notice] = t('search.no_results')
 		render :index
 	end
 
