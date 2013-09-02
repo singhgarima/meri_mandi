@@ -2,12 +2,12 @@
   = render partial: 'shared/flash'
   = form_tag '/search', class: 'form-inline', method: :get do
     .form-group
-      = text_field_tag 'query', params[:query], class: 'form-control', placeholder: 'Commodity Name'
+      = text_field_tag 'query', params[:query], class: 'form-control', placeholder: t('search.commodity_name')
     .form-group
       = text_field_tag 'date', params[:date], class: 'form-control datepicker', placeholder: Date.today.strftime('%d-%m-%Y')
     .form-group
-      = text_field_tag 'location', params[:location], class: 'form-control', placeholder: 'Mandi Name/District/State'
-    = button_tag 'Search', class: 'btn btn-info'
+      = text_field_tag 'location', params[:location], class: 'form-control', placeholder: t('search.location')
+    = button_tag t('search.search_button'), class: 'btn btn-info'
 
   %h3
     Results

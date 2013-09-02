@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  search:
+    commodity_name: 'Commodity Name'
+    location: 'Mandi Name/District/State'
+    search_button: 'Search'
