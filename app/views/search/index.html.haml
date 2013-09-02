@@ -1,7 +1,14 @@
 .page
+  - if flash[:notice]
+    .alert.alert-danger
+      = flash[:notice]
   = form_tag '/search', class: 'form-inline', method: :get do
     .form-group
-      = text_field_tag 'query', nil, class: 'form-control'
+      = text_field_tag 'query', nil, class: 'form-control', placeholder: 'Commodity Name'
+    .form-group
+      = text_field_tag 'date', nil, class: 'form-control datepicker', placeholder: 'Date'
+    .form-group
+      = text_field_tag 'location', nil, class: 'form-control datepicker', placeholder: 'Mandi Name/District/State'
     = button_tag 'Search', class: 'btn btn-info'
 
   %h3
