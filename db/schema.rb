@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828135420) do
+ActiveRecord::Schema.define(version: 20130902175600) do
 
   create_table "commodities", force: true do |t|
     t.string   "name"
@@ -49,6 +49,32 @@ ActiveRecord::Schema.define(version: 20130828135420) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_preferences", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "market_id"
+    t.integer  "variety_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "mobile"
+    t.integer  "state_id"
+    t.string   "city"
+    t.integer  "market_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+    t.string   "encrypted_password", limit: 128
+    t.string   "confirmation_token", limit: 128
+    t.string   "remember_token",     limit: 128
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["mobile"], name: "index_users_on_mobile"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "varieties", force: true do |t|
     t.string   "name"
