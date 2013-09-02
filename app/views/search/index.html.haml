@@ -1,7 +1,5 @@
 .page
-  - if flash[:notice]
-    .alert.alert-danger
-      = flash[:notice]
+  = render partial: 'shared/flash'
   = form_tag '/search', class: 'form-inline', method: :get do
     .form-group
       = text_field_tag 'query', nil, class: 'form-control', placeholder: 'Commodity Name'
@@ -14,5 +12,5 @@
   %h3
     Results
   .results
-    = render :partial => 'search/result', collection: @results
+    = render partial: 'search/result', collection: @results
 
