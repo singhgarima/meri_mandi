@@ -27,3 +27,4 @@ en:
     search_button: 'Search'
     no_criteria: 'No search criteria mentioned'
     no_results: 'No results found for this criteria'
+    date: "Date"

@@ -1,8 +1,11 @@
 body {
   .page {
     .results {
-      .result {
-        height: 200px;
+      .result.col-md-6 {
+        min-width: 325px;
+        .panel{
+          height: 200px;
+        }
       }
     }
   }
