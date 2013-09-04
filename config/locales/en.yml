@@ -23,7 +23,13 @@ en:
   hello: "Hello world"
   search:
     commodity_name: 'Commodity Name'
-    location: 'Mandi Name/District/State'
+    date: 'Date'
+    market: 'Mandi Name'
+    district: 'District'
+    state: 'State'
+    advanced: 'Advanced'
+    close: 'Close'
+    search: 'Search'
     search_button: 'Search'
     no_criteria: 'No search criteria mentioned'
     no_results: 'No results found for this criteria'

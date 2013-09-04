@@ -21,7 +21,7 @@ describe SearchController do
       CommodityPrice.should_receive(:search).with('bazinga', Date.today).
         and_return(expected_result)
 
-      get :fetch, query: 'bazinga'
+      get :fetch, commodity: 'bazinga'
 
       controller.instance_variable_get(:@results).should == expected_result
     end
@@ -33,7 +33,7 @@ describe SearchController do
     end
 
     it "should populate flash notice if no results from specifies search criteria" do
-      get :fetch, query: 'kjashdkahsdk'
+      get :fetch, commodity: 'kjashdkahsdk'
 
       flash[:notice].should == "No results found for this criteria"
     end
