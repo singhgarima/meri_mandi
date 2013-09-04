@@ -5,10 +5,10 @@
       .form-group.col-lg-3.col-md-2
         %label.sr-only = t('search.commodity_name')
         = text_field_tag 'query', params[:query], class: 'form-control', placeholder: t('search.commodity_name')
-      .form-group.col-lg-3.col-md-2
+      .form-group.col-lg-3.col-md-2.hidden-xs
         %label.sr-only = t('search.date')
         = text_field_tag 'date', params[:date], class: 'form-control datepicker', placeholder: Date.today.strftime('%d-%m-%Y')
-      .form-group.col-lg-3.col-md-4
+      .form-group.col-lg-3.col-md-4.hidden-xs
         %label.sr-only = t('search.location')
         = text_field_tag 'location', params[:location], class: 'form-control', placeholder: t('search.location')
       .form-group.col-lg-3.col-md-3
