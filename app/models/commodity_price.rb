@@ -22,19 +22,7 @@ class CommodityPrice < ActiveRecord::Base
 
   scope :arrival_date, ->(date = Date.today) { where(arrival_date: date.strftime('%d/%m/%Y')) }
 
-  def self.simple_search name, date = Date.today.strftime('%d/%m/%Y')
-    CommodityPrice.search do
-      query do
-        boolean do
-          should { string "variety_name:*#{name}*"}
-          should { string "commodity_name:*#{name}*"}
-          must { string "arrival_date:#{date}" }
-        end
-      end
-    end.collect { |cp| cp }
-  end
-
-  def self.advanced_search name, date = Date.today.strftime('%d/%m/%Y'), market = nil, district = nil, state = nil
+  def self.fetch name, date = Date.today.strftime('%d/%m/%Y'), market = nil, district = nil, state = nil
     commodity_prices = CommodityPrice.search do
       query do
         boolean do
