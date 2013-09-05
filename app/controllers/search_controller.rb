@@ -10,7 +10,7 @@ class SearchController < ApplicationController
 
     search_date = params['date'].blank? ? Date.today : Date.strptime(params['date'], '%d-%m-%Y') 
 
-		@results = CommodityPrice.search(params['commodity'], search_date)
+		@results = CommodityPrice.simple_search(params['commodity'], search_date)
     flash[:notice] = t('search.no_results')
 		render :index
 	end
