@@ -26,12 +26,12 @@ class CommodityPrice < ActiveRecord::Base
     commodity_prices = CommodityPrice.search do
       query do
         boolean do
-          should { string "variety_name:*#{name}*"}
-          should { string "commodity_name:*#{name}*"}
+          should { string "variety_name:*#{name}*"} if name.present?
+          should { string "commodity_name:*#{name}*"} if name.present?
           must { string "arrival_date:#{date}" }
           must { string "market_name:#{market}" } if market.present?
-          must { string "district_name:#{market}" } if district.present?
-          must { string "state_name:#{market}" } if state.present?
+          must { string "district_name:#{district}" } if district.present?
+          must { string "state_name:#{state}" } if state.present?
         end
       end
     end
