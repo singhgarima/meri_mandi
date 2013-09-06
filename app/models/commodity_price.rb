@@ -34,6 +34,7 @@ class CommodityPrice < ActiveRecord::Base
           must { string "state_name:#{state}" } if state.present?
         end
       end
+      sort { by :max_price, 'asc' }
     end
     commodity_prices
   end
