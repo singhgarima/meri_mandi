@@ -3,6 +3,7 @@ MeriMandi::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 	get "/search" => "search#fetch"
+  resources :preferences, only: [:index]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
