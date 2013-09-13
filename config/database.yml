@@ -18,3 +18,11 @@ test:
   pool: 5
   timeout: 5000
 
+production:
+  adapter: postgresql
+  username: postgres
+  password: meri_mandi_prod
+  database: meri_mandi_prod
+  encoding: unicode
+  host: localhost
+  port: 5432
