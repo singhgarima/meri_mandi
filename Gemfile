@@ -40,6 +40,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'tire'
+gem 'yajl-ruby'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

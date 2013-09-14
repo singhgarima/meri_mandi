@@ -14,13 +14,13 @@
             = text_field_tag 'date', params[:date], class: 'form-control datepicker', placeholder: Date.today.strftime('%d-%m-%Y')
           .form-group
             = label_tag t('search.state')
-            = select_tag 'state',  options_for_select(State.all.collect{ |s| [ s.name, s.name ] }), class: 'form-control'
+            = select_tag 'state',  options_for_select([['Select from states', nil]] + State.all.collect{ |s| [ s.name, s.name ] }), class: 'form-control', id: 'select_state'
           .form-group
             = label_tag t('search.district')
-            = select_tag 'district', options_for_select(District.all.collect{ |d| [ d.name, d.name ] }), class: 'form-control'
+            = select_tag 'district', options_for_select([['Select from districts', nil]] + District.all.collect{ |d| [ d.name, d.name ] }), class: 'form-control', id: 'select_district'
           .form-group
             = label_tag t('search.market')
-            = select_tag 'market', options_for_select(Market.all.collect{ |m| [ m.name, m.name ] }), class: 'form-control'
+            = select_tag 'market', options_for_select([['Select from markets/mandis', nil]] + Market.all.collect{ |m| [ m.name, m.name ] }), class: 'form-control', id: 'select_market'
         .modal-footer
           = link_to t('search.close'), '#', :class => 'btn btn-danger', :'data-dismiss' => "modal"
           = submit_tag t('search.search'), class: 'btn btn-primary'

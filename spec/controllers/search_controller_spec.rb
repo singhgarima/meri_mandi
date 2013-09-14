@@ -18,7 +18,8 @@ describe SearchController do
 
     it "should fetch the commodities returned by the search" do
       expected_result = [double(), double()]
-      CommodityPrice.should_receive(:search).with('bazinga', Date.today).
+      CommodityPrice.should_receive(:fetch).
+        with('bazinga', Date.today, nil, nil, nil).
         and_return(expected_result)
 
       get :fetch, commodity: 'bazinga'
@@ -33,6 +34,9 @@ describe SearchController do
     end
 
     it "should populate flash notice if no results from specifies search criteria" do
+      CommodityPrice.should_receive(:fetch).
+        with('kjashdkahsdk', Date.today, nil, nil, nil).
+        and_return([])
       get :fetch, commodity: 'kjashdkahsdk'
 
       flash[:notice].should == "No results found for this criteria"
