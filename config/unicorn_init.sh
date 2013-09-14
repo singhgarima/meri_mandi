@@ -19,6 +19,7 @@ RBENV_ROOT="/home/$USER/.rbenv"
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/ec2-user/apps/meri_mandi/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
+SET_PATH="cd $APP_ROOT; rbenv rehash; rbenv local $RBENV_RUBY_VERSION"
 PATH="$RBENV_ROOT/bin:$RBENV_ROOT/shims:$PATH"
 CMD="cd $APP_ROOT; RBENV_VERSION=$RBENV_VERSION bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 AS_USER=ec2-user
