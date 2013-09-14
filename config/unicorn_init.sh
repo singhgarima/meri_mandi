@@ -10,11 +10,17 @@
 ### END INIT INFO
 set -e
 
+USER='ec2-user'
+APP_NAME='meri_mandi'
+RBENV_RUBY_VERSION='1.9.3-p448'
+RBENV_ROOT="/home/$USER/.rbenv"
+
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/ec2-user/apps/meri_mandi/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
-CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
+PATH="$RBENV_ROOT/bin:$RBENV_ROOT/shims:$PATH"
+CMD="cd $APP_ROOT; RBENV_VERSION=$RBENV_VERSION bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 AS_USER=ec2-user
 set -u
 
