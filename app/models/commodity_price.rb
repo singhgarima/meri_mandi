@@ -1,5 +1,3 @@
-require 'tire'
-
 class CommodityPrice < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
