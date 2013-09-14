@@ -11,7 +11,6 @@ gem 'haml-rails'
 
 gem 'jquery-rails'
 gem 'nokogiri'
-gem 'clearance'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 
@@ -19,6 +18,9 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+gem "unicorn"
+gem 'execjs'
+gem 'therubyracer', :require => 'v8'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -28,7 +30,9 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'sqlite3'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
 end
 
 group :production do
