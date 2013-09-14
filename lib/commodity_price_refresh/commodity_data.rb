@@ -2,7 +2,7 @@ require 'open-uri'
 require_relative './data_source/gov_data'
 class CommodityData
   DATA_SOURCES = [GovData]
-  
+
   def self.refresh
     DATA_SOURCES.each do |data_source|
       p "      Executing data fetch from '#{data_source}'"
@@ -11,8 +11,9 @@ class CommodityData
         insert_data(data)
       end
     end
+    index_data
   end
-  
+
   private 
   def self.insert_data(data)
     state = State.where(name: data.delete(:state)).first_or_create
@@ -21,5 +22,9 @@ class CommodityData
     commodity = Commodity.where(name: data.delete(:commodity)).first_or_create
     variety = commodity.varieties.where(name: data.delete(:variety)).first_or_create
     commodity_price = market.commodity_prices.new(data.merge(variety: variety)).save
+  end
+
+  def self.index_data
+    CommodityPrice.index.import CommodityPrice.arrival_date
   end
 end
