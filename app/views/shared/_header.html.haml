@@ -1,0 +1,16 @@
+%nav.navbar.navbar-default{role: "navigation"}
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{href: "/"} Meri Mandi
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      %li.active
+        = link_to 'Advanced Search', '#advanced-search', :'data-toggle' => 'modal'
+      %li
+        %a{href: "#"} Link1
+      %li
+        %a{href: "#"} Link2

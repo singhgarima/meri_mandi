@@ -1,7 +1,5 @@
 .page.clearfix
-  = render partial: 'shared/flash'
   %div
-    = link_to 'Advanced Search', '#advanced-search', :'data-toggle' => 'modal'
     = form_tag '/search', class: 'form clearfix', method: :get do
       .form-group.col-lg-3.col-md-2
         = label_tag t('search.commodity_name'), nil, class: 'sr-only'
@@ -15,4 +13,3 @@
     Results
   .results
     = render partial: 'search/result', collection: @results
-
