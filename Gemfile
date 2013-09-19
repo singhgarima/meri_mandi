@@ -47,7 +47,7 @@ end
 gem 'tire'
 gem 'yajl-ruby'
 
-gem 'whenever', :require => false
+gem 'whenever'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
