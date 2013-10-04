@@ -8,8 +8,8 @@
         = button_tag t('search.search_button'), class: 'btn btn-info'
 
     = render partial: 'advanced_search'
-  .clearfix
-  %h3
-    Results
-  .results
-    = render partial: 'search/result', collection: @results
+  - unless @results.blank?
+    %h3.results-heading
+      Results
+    .results
+      = render partial: 'search/result', collection: @results
