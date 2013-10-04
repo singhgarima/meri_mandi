@@ -11,6 +11,8 @@
       %li
         = link_to 'Advanced Search', '#advanced-search', :'data-toggle' => 'modal'
       %li
-        %a{href: "#"} Link1
-      %li
-        %a{href: "#"} Link2
+        %a{href: "#"} My Prefrences
+    = form_tag '/search', class: 'navbar-form navbar-right', role: 'search', method: :get do
+      .form-group
+        = text_field_tag 'commodity', params[:commodity], class: 'form-control', placeholder: t('search.commodity_name')
+      = button_tag t('search.search_button'), class: 'btn btn-default'
