@@ -3,6 +3,8 @@
     = render partial: 'advanced_search'
   - unless @results.blank?
     %h3.results-heading
-      Results
+      = "Results for"
+      %em.muted
+        = "'#{params[:commodity]}'"
     .results
       = render partial: 'search/result', collection: @results
